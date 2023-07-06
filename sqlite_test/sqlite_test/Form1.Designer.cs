@@ -40,6 +40,7 @@
             this.ok_btn = new System.Windows.Forms.Button();
             this.search_tbx = new System.Windows.Forms.TextBox();
             this.Search_label = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,15 +129,15 @@
             this.ok_btn.Name = "ok_btn";
             this.ok_btn.Size = new System.Drawing.Size(88, 28);
             this.ok_btn.TabIndex = 10;
-            this.ok_btn.Text = "OK";
+            this.ok_btn.Text = "검색";
             this.ok_btn.UseVisualStyleBackColor = true;
             this.ok_btn.Click += new System.EventHandler(this.ok_btn_Click);
             // 
             // search_tbx
             // 
-            this.search_tbx.Location = new System.Drawing.Point(503, 50);
+            this.search_tbx.Location = new System.Drawing.Point(657, 50);
             this.search_tbx.Name = "search_tbx";
-            this.search_tbx.Size = new System.Drawing.Size(399, 25);
+            this.search_tbx.Size = new System.Drawing.Size(245, 25);
             this.search_tbx.TabIndex = 11;
             // 
             // Search_label
@@ -148,11 +149,24 @@
             this.Search_label.Text = "SEARCH";
             this.Search_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.comboBox1.Items.AddRange(new object[] {
+            "company로",
+            "name으로"});
+            this.comboBox1.Location = new System.Drawing.Point(503, 52);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(135, 23);
+            this.comboBox1.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1038, 527);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Search_label);
             this.Controls.Add(this.search_tbx);
             this.Controls.Add(this.ok_btn);
@@ -167,7 +181,6 @@
             this.Controls.Add(this.add_btn);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -188,6 +201,7 @@
         private System.Windows.Forms.Button ok_btn;
         private System.Windows.Forms.TextBox search_tbx;
         private System.Windows.Forms.Label Search_label;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

@@ -44,6 +44,9 @@ namespace sqlite_test
                 dataGridView1.Columns[1].HeaderText = "MEDICINE NAME";
                 dataGridView1.Columns[2].HeaderText = "LOCATION";
 
+                comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+                comboBox1.SelectedIndex = 0;
+
                 conn.Close();
             }catch(Exception exc)
             {
@@ -75,22 +78,45 @@ namespace sqlite_test
 
         private void ok_btn_Click(object sender, EventArgs e)
         {
-            string query = "select * from info";
-            SQLiteCommand cmd = new SQLiteCommand(query, conn);
-            SQLiteDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                dataGridView1.Rows.Add(reader["company"], reader["name"], reader["location"]);
+                string filter;
+                switch (comboBox1.SelectedIndex)
+                {
+                    case 0:
+                        filter = "company";
+                        break;
+                    case 1:
+                        filter = "name";
+                        break;
+                    default:
+                        filter = "name";
+                        break;
+                }
+                conn = new SQLiteConnection("Data Source = " + Application.StartupPath + "/medicine_info.db");
+                conn.Open();
+                command = new SQLiteCommand(conn);
+
+                if(dataGridView1.Rows.Count == 0)
+                {
+                    command.CommandText = "SELECT * FROM medicine_info";
+                }
+                else
+                {
+                    command.CommandText = "SELECT * FROM medicine_info WHERE "+filter.Trim()+" LIKE '%" + search_tbx.Text + "%'";
+                }
+                SQLiteDataReader reader = command.ExecuteReader();
+                dt = new DataTable();
+                dt.Load(reader);
+                dataGridView1.DataSource = dt;
+                reader.Close();
+
+                conn.Close();
             }
-            reader.Close();
-
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-            SQLiteConnection conn = new SQLiteConnection("Data Source = medicine_info.db;");
-            conn.Close();
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
