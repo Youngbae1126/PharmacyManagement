@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.add_btn = new System.Windows.Forms.Button();
             this.del_btn = new System.Windows.Forms.Button();
             this.company_tbx = new System.Windows.Forms.TextBox();
@@ -41,6 +42,9 @@
             this.search_tbx = new System.Windows.Forms.TextBox();
             this.Search_label = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.show_btn = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.edit_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,13 +118,20 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(427, 91);
+            this.dataGridView1.Location = new System.Drawing.Point(427, 92);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(579, 391);
             this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // ok_btn
@@ -161,11 +172,47 @@
             this.comboBox1.Size = new System.Drawing.Size(135, 23);
             this.comboBox1.TabIndex = 13;
             // 
+            // show_btn
+            // 
+            this.show_btn.Location = new System.Drawing.Point(47, 445);
+            this.show_btn.Name = "show_btn";
+            this.show_btn.Size = new System.Drawing.Size(322, 35);
+            this.show_btn.TabIndex = 19;
+            this.show_btn.Text = "조회하기";
+            this.show_btn.UseVisualStyleBackColor = true;
+            this.show_btn.Click += new System.EventHandler(this.show_btn_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.comboBox2.Items.AddRange(new object[] {
+            "company를",
+            "name을",
+            "location을"});
+            this.comboBox2.Location = new System.Drawing.Point(62, 388);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(135, 23);
+            this.comboBox2.TabIndex = 18;
+            // 
+            // edit_btn
+            // 
+            this.edit_btn.Location = new System.Drawing.Point(214, 373);
+            this.edit_btn.Name = "edit_btn";
+            this.edit_btn.Size = new System.Drawing.Size(155, 50);
+            this.edit_btn.TabIndex = 17;
+            this.edit_btn.Text = "Edit";
+            this.edit_btn.UseVisualStyleBackColor = true;
+            this.edit_btn.Click += new System.EventHandler(this.edit_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1038, 527);
+            this.Controls.Add(this.show_btn);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.edit_btn);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Search_label);
             this.Controls.Add(this.search_tbx);
@@ -179,8 +226,10 @@
             this.Controls.Add(this.company_tbx);
             this.Controls.Add(this.del_btn);
             this.Controls.Add(this.add_btn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "감초당 약국 재고 관리 프로그램";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -202,6 +251,9 @@
         private System.Windows.Forms.TextBox search_tbx;
         private System.Windows.Forms.Label Search_label;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button show_btn;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button edit_btn;
     }
 }
 

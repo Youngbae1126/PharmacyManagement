@@ -13,6 +13,7 @@ namespace sqlite_test
 {
     public partial class Form1 : Form
     {
+        int idx;
         SQLiteConnection conn;
         SQLiteCommand command;
         DataTable dt;
@@ -22,6 +23,7 @@ namespace sqlite_test
             InitializeComponent();
 
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;   // 행을 추가하기 위한 옵션이 사용자에게 표시되는 지 여부
 
             try
@@ -45,10 +47,12 @@ namespace sqlite_test
                 dataGridView1.Columns[2].HeaderText = "LOCATION";
 
                 comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-                comboBox1.SelectedIndex = 0;
+                comboBox1.SelectedIndex = 1;
+                comboBox2.SelectedIndex = 1;
 
                 conn.Close();
-            }catch(Exception exc)
+            }
+            catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
@@ -70,7 +74,7 @@ namespace sqlite_test
 
                 dt.Rows.Add(company_tbx.Text, name_tbx.Text, location_tbx.Text);
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
@@ -97,13 +101,13 @@ namespace sqlite_test
                 conn.Open();
                 command = new SQLiteCommand(conn);
 
-                if(dataGridView1.Rows.Count == 0)
+                if (dataGridView1.Rows.Count == 0)
                 {
                     command.CommandText = "SELECT * FROM medicine_info";
                 }
                 else
                 {
-                    command.CommandText = "SELECT * FROM medicine_info WHERE "+filter.Trim()+" LIKE '%" + search_tbx.Text + "%'";
+                    command.CommandText = "SELECT * FROM medicine_info WHERE " + filter.Trim() + " LIKE '%" + search_tbx.Text + "%'";
                 }
                 SQLiteDataReader reader = command.ExecuteReader();
                 dt = new DataTable();
@@ -113,7 +117,7 @@ namespace sqlite_test
 
                 conn.Close();
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
@@ -158,6 +162,103 @@ namespace sqlite_test
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idx = e.RowIndex;
+        }
+
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow newdata = dataGridView1.Rows[idx];
+                string filter;
+                string edit_text;
+                string text;
+                switch (comboBox2.SelectedIndex)
+                {
+                    case 0:
+                        filter = "company";
+                        edit_text = company_tbx.Text;
+                        text = newdata.Cells[0].Value.ToString();
+                        break;
+                    case 1:
+                        filter = "name";
+                        edit_text = name_tbx.Text;
+                        text = newdata.Cells[1].Value.ToString();
+                        break;
+                    case 2:
+                        filter = "location";
+                        edit_text = location_tbx.Text;
+                        text = newdata.Cells[2].Value.ToString();
+                        break;
+                    default:
+                        filter = "name";
+                        edit_text = name_tbx.Text;
+                        text = newdata.Cells[1].Value.ToString();
+                        break;
+                }
+                conn = new SQLiteConnection("Data Source = " + Application.StartupPath + "/medicine_info.db");
+                conn.Open();
+
+                command = new SQLiteCommand(conn);
+                command.CommandText = "UPDATE medicine_info SET " + filter + " = '" + edit_text.Trim() +
+                    "' WHERE " + filter.Trim() + " = '" + text.Trim() + "'";
+
+                SQLiteDataReader reader = command.ExecuteReader();
+                dt = new DataTable();
+                dt.Load(reader);
+                dataGridView1.DataSource = dt;
+                reader.Close();
+
+                conn.Close();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+        }
+
+        private void show_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn = new SQLiteConnection("Data Source = " + Application.StartupPath + "/medicine_info.db");
+                conn.Open();
+                command = new SQLiteCommand(conn);
+                command.CommandText = "SELECT * FROM medicine_info";
+
+                SQLiteDataReader reader = command.ExecuteReader();
+                dt = new DataTable();
+                dt.Load(reader);
+                dataGridView1.DataSource = dt;
+                reader.Close();
+
+                conn.Close();
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            String rowIdx = (e.RowIndex + 1).ToString();
+
+            StringFormat centerFormat = new StringFormat()
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            Rectangle headerBound = new Rectangle(e.RowBounds.Left, e.RowBounds.Top,
+                dataGridView1.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIdx, Font, SystemBrushes.ControlText, headerBound, centerFormat);
         }
     }
 }
