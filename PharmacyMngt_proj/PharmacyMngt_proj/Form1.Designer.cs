@@ -53,9 +53,18 @@
             this.company_tbx = new System.Windows.Forms.TextBox();
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -86,11 +95,11 @@
             this.comboBox1.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.comboBox1.ItemHeight = 22;
             this.comboBox1.Items.AddRange(new object[] {
-            "COMPANY",
-            "NAME"});
+            "제약회사",
+            "약 이름"});
             this.comboBox1.Location = new System.Drawing.Point(153, 44);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 28);
+            this.comboBox1.Size = new System.Drawing.Size(164, 28);
             this.comboBox1.TabIndex = 21;
             // 
             // search_tbx
@@ -103,8 +112,9 @@
             this.search_tbx.Location = new System.Drawing.Point(338, 44);
             this.search_tbx.Multiline = true;
             this.search_tbx.Name = "search_tbx";
-            this.search_tbx.Size = new System.Drawing.Size(424, 35);
+            this.search_tbx.Size = new System.Drawing.Size(505, 35);
             this.search_tbx.TabIndex = 19;
+            this.search_tbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.search_tbx_KeyDown);
             // 
             // ok_btn
             // 
@@ -116,13 +126,13 @@
             this.ok_btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.ok_btn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.ok_btn.FillColor = System.Drawing.Color.White;
-            this.ok_btn.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.ok_btn.Font = new System.Drawing.Font("한컴 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ok_btn.ForeColor = System.Drawing.Color.Black;
-            this.ok_btn.Location = new System.Drawing.Point(787, 43);
+            this.ok_btn.Location = new System.Drawing.Point(861, 44);
             this.ok_btn.Name = "ok_btn";
             this.ok_btn.Size = new System.Drawing.Size(100, 36);
             this.ok_btn.TabIndex = 19;
-            this.ok_btn.Text = "OK";
+            this.ok_btn.Text = "검색";
             this.ok_btn.Click += new System.EventHandler(this.ok_btn_Click);
             // 
             // label1
@@ -206,6 +216,13 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.panel8);
+            this.metroPanel1.Controls.Add(this.label6);
+            this.metroPanel1.Controls.Add(this.panel5);
+            this.metroPanel1.Controls.Add(this.label4);
+            this.metroPanel1.Controls.Add(this.pictureBox1);
+            this.metroPanel1.Controls.Add(this.label2);
+            this.metroPanel1.Controls.Add(this.label3);
             this.metroPanel1.Controls.Add(this.comboBox2);
             this.metroPanel1.Controls.Add(this.show_btn);
             this.metroPanel1.Controls.Add(this.del_btn);
@@ -240,13 +257,13 @@
             this.comboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.comboBox2.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.comboBox2.ItemHeight = 22;
+            this.comboBox2.ItemHeight = 30;
             this.comboBox2.Items.AddRange(new object[] {
-            "COMPANY",
-            "NAME"});
-            this.comboBox2.Location = new System.Drawing.Point(17, 300);
+            "제약회사",
+            "약 이름"});
+            this.comboBox2.Location = new System.Drawing.Point(13, 340);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(290, 28);
+            this.comboBox2.Size = new System.Drawing.Size(169, 36);
             this.comboBox2.TabIndex = 22;
             // 
             // show_btn
@@ -256,13 +273,13 @@
             this.show_btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.show_btn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.show_btn.FillColor = System.Drawing.Color.ForestGreen;
-            this.show_btn.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.show_btn.Font = new System.Drawing.Font("한컴 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.show_btn.ForeColor = System.Drawing.Color.White;
-            this.show_btn.Location = new System.Drawing.Point(169, 419);
+            this.show_btn.Location = new System.Drawing.Point(13, 426);
             this.show_btn.Name = "show_btn";
-            this.show_btn.Size = new System.Drawing.Size(138, 46);
+            this.show_btn.Size = new System.Drawing.Size(290, 46);
             this.show_btn.TabIndex = 17;
-            this.show_btn.Text = "Show";
+            this.show_btn.Text = "조회하기";
             this.show_btn.Click += new System.EventHandler(this.show_btn_Click);
             // 
             // del_btn
@@ -272,13 +289,13 @@
             this.del_btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.del_btn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.del_btn.FillColor = System.Drawing.Color.ForestGreen;
-            this.del_btn.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.del_btn.Font = new System.Drawing.Font("한컴 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.del_btn.ForeColor = System.Drawing.Color.White;
-            this.del_btn.Location = new System.Drawing.Point(161, 235);
+            this.del_btn.Location = new System.Drawing.Point(157, 259);
             this.del_btn.Name = "del_btn";
             this.del_btn.Size = new System.Drawing.Size(146, 44);
             this.del_btn.TabIndex = 16;
-            this.del_btn.Text = "Delete";
+            this.del_btn.Text = "삭제";
             this.del_btn.Click += new System.EventHandler(this.del_btn_Click);
             // 
             // edit_btn
@@ -288,13 +305,13 @@
             this.edit_btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.edit_btn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.edit_btn.FillColor = System.Drawing.Color.ForestGreen;
-            this.edit_btn.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.edit_btn.Font = new System.Drawing.Font("한컴 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.edit_btn.ForeColor = System.Drawing.Color.White;
-            this.edit_btn.Location = new System.Drawing.Point(169, 349);
+            this.edit_btn.Location = new System.Drawing.Point(188, 340);
             this.edit_btn.Name = "edit_btn";
-            this.edit_btn.Size = new System.Drawing.Size(138, 44);
+            this.edit_btn.Size = new System.Drawing.Size(115, 47);
             this.edit_btn.TabIndex = 15;
-            this.edit_btn.Text = "Edit";
+            this.edit_btn.Text = "수정";
             this.edit_btn.Click += new System.EventHandler(this.edit_btn_Click);
             // 
             // add_btn
@@ -304,19 +321,19 @@
             this.add_btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.add_btn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.add_btn.FillColor = System.Drawing.Color.ForestGreen;
-            this.add_btn.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.add_btn.Font = new System.Drawing.Font("한컴 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.add_btn.ForeColor = System.Drawing.Color.White;
-            this.add_btn.Location = new System.Drawing.Point(17, 235);
+            this.add_btn.Location = new System.Drawing.Point(13, 259);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(138, 44);
             this.add_btn.TabIndex = 14;
-            this.add_btn.Text = "Add";
+            this.add_btn.Text = "추가";
             this.add_btn.Click += new System.EventHandler(this.Add_btn_Click);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.ForestGreen;
-            this.panel4.Location = new System.Drawing.Point(17, 196);
+            this.panel4.Location = new System.Drawing.Point(13, 220);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(290, 3);
             this.panel4.TabIndex = 10;
@@ -324,16 +341,18 @@
             // location_tbx
             // 
             this.location_tbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.location_tbx.Location = new System.Drawing.Point(17, 165);
+            this.location_tbx.Location = new System.Drawing.Point(13, 189);
             this.location_tbx.Name = "location_tbx";
             this.location_tbx.Size = new System.Drawing.Size(290, 25);
             this.location_tbx.TabIndex = 9;
             this.location_tbx.Text = "LOCATION";
+            this.location_tbx.MouseClick += new System.Windows.Forms.MouseEventHandler(this.location_tbx_MouseClick);
+            this.location_tbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.location_tbx_KeyDown);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.ForestGreen;
-            this.panel3.Location = new System.Drawing.Point(17, 138);
+            this.panel3.Location = new System.Drawing.Point(13, 162);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(290, 3);
             this.panel3.TabIndex = 8;
@@ -341,7 +360,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.ForestGreen;
-            this.panel2.Location = new System.Drawing.Point(17, 85);
+            this.panel2.Location = new System.Drawing.Point(13, 109);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(290, 3);
             this.panel2.TabIndex = 6;
@@ -349,20 +368,22 @@
             // name_tbx
             // 
             this.name_tbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.name_tbx.Location = new System.Drawing.Point(17, 107);
+            this.name_tbx.Location = new System.Drawing.Point(13, 131);
             this.name_tbx.Name = "name_tbx";
             this.name_tbx.Size = new System.Drawing.Size(290, 25);
             this.name_tbx.TabIndex = 7;
             this.name_tbx.Text = "MEDICINE NAME";
+            this.name_tbx.MouseClick += new System.Windows.Forms.MouseEventHandler(this.name_tbx_MouseClick);
             // 
             // company_tbx
             // 
             this.company_tbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.company_tbx.Location = new System.Drawing.Point(17, 54);
+            this.company_tbx.Location = new System.Drawing.Point(13, 78);
             this.company_tbx.Name = "company_tbx";
             this.company_tbx.Size = new System.Drawing.Size(290, 25);
             this.company_tbx.TabIndex = 3;
             this.company_tbx.Text = "COMPANY";
+            this.company_tbx.MouseClick += new System.Windows.Forms.MouseEventHandler(this.company_tbx_MouseClick);
             // 
             // metroSetControlBox1
             // 
@@ -400,6 +421,94 @@
             this.panel1.Size = new System.Drawing.Size(1343, 10);
             this.panel1.TabIndex = 11;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(10, 505);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 17);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "※ 주의사항";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("맑은 고딕", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(10, 534);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(270, 17);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "수정 후 반드시 조회하기 버튼을 눌러주세요.";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::PharmacyMngt_proj.Properties.Resources.drugstore;
+            this.pictureBox1.InitialImage = global::PharmacyMngt_proj.Properties.Resources.drugstore;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 664);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("한컴 고딕", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(117, 716);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(190, 48);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "감초당약국";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("한컴 고딕", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(17, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(296, 36);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "약국 재고 관리 프로그램";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.ForestGreen;
+            this.panel5.Location = new System.Drawing.Point(19, 45);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(91, 10);
+            this.panel5.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("한컴 고딕", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(118, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 22);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "정보 입력";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.ForestGreen;
+            this.panel8.Location = new System.Drawing.Point(206, 45);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(97, 10);
+            this.panel8.TabIndex = 8;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
@@ -407,6 +516,7 @@
             this.BorderColor = System.Drawing.Color.DarkGreen;
             this.BorderThickness = 10F;
             this.ClientSize = new System.Drawing.Size(1340, 846);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.metroPanel1);
@@ -416,12 +526,15 @@
             this.SmallLineColor1 = System.Drawing.Color.White;
             this.SmallLineColor2 = System.Drawing.Color.White;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -448,6 +561,14 @@
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2ComboBox comboBox1;
         private Guna.UI2.WinForms.Guna2ComboBox comboBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel8;
     }
 }
 

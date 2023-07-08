@@ -257,7 +257,39 @@ namespace PharmacyMngt_proj
             }
         }
 
-        
-    
+        // 텍스트 박스 클릭 시 마우스 커서 텍스트 맨 뒤로 보내기 이벤트
+        private void company_tbx_MouseClick(object sender, MouseEventArgs e)
+        {
+            company_tbx.SelectionStart = company_tbx.Text.Length;
+        }
+
+        private void name_tbx_MouseClick(object sender, MouseEventArgs e)
+        {
+            name_tbx.SelectionStart = name_tbx.Text.Length;
+        }
+
+        private void location_tbx_MouseClick(object sender, MouseEventArgs e)
+        {
+            location_tbx.SelectionStart = location_tbx.Text.Length;
+        }
+
+        private void location_tbx_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Add_btn_Click(sender, e);
+        }
+
+        private void search_tbx_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                ok_btn_Click(sender, e);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            company_tbx.Text = "COMPANY";
+            name_tbx.Text = "MEDICINE NAME";
+            location_tbx.Text = "LOCATION";
+        }
     }
 }
