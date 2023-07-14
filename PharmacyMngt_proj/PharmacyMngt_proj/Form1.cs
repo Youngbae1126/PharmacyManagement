@@ -65,6 +65,7 @@ namespace PharmacyMngt_proj
         {
             try
             {
+                this.ActiveControl = company_tbx;  // 커서 포커싱 설정
                 conn = new SQLiteConnection("Data Source = " + Application.StartupPath + "/medicine_info.db");
                 conn.Open();
 
@@ -287,6 +288,7 @@ namespace PharmacyMngt_proj
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = company_tbx;  // 커서 포커싱 설정
             company_tbx.Text = "COMPANY";
             name_tbx.Text = "MEDICINE NAME";
             location_tbx.Text = "LOCATION";
